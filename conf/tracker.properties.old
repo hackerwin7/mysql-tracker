@@ -1,0 +1,36 @@
+#### mysql ####
+mysql.address = 127.0.0.1
+mysql.port = 3306
+mysql.usr = canal
+mysql.psd = canal
+mysql.slaveId = 2234
+#### hbase ####
+hbase.rootdir = hdfs://localhost:9000/hbase
+hbase.cluster.distributed = true
+hbase.zookeeper.quorum = localhost
+hbase.zookeeper.property.clientPort = 2181
+dfs.socket.timeout = 180000
+
+
+
+
+#### common ####
+job.name = mysql-tracker
+job.charset = UTF-8
+#### mysql ####
+mysql.address = 127.0.0.1
+mysql.port = 3306
+mysql.usr = mysql
+mysql.psd = mysql
+mysql.slaveId = 2234
+#### kafka data ####
+kafka.data.zkserver = 192.168.144.110:2181
+kafka.data.zkroot = /kafka # default is /
+kafka.acks = -1
+kafka.data.topic.tracker = tracker-log-mysql
+#### zookeeper ####
+zookeeper.server = 192.168.144.110:2181,192.168.144.111:2181,192.168.144.112:2181
+#### kafka monitor ####
+kafka.monitor.zkserver = 192.168.144.110:2181
+kafka.monitor.zkroot = /kafka # default is /
+kafka.monitor.topic = tracker-monitor

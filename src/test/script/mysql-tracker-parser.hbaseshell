@@ -1,0 +1,35 @@
+# rebuild the HBase table structure
+# disable 'binlog_xid'
+# drop 'binlog_xid'
+
+# disable 'event_bytes_xid'
+# drop 'event_bytes_xid'
+
+# disable 'event_bytes'
+# drop 'event_bytes'
+
+# disable 'event_bytes_read'
+# drop 'event_bytes_read'
+
+# binlog xid table, only one row row_key = 0, position = binlog file name : offset
+# create 'binlog_xid','xid_position'
+
+# event xid table, only one row row_key = 0, position = event_bytes's row_key and the row_key's value is xid
+# initial is 0
+# create 'event_bytes_xid','xid_position'
+
+# event bytes table, multiple row, row_key = integer number besides the row_key is natural number
+# create 'event_bytes','byte_code'
+
+# event bytes read position, only one row row_key = 0 , the value is event_bytes's row_key
+# create 'event_bytes_read','position'
+
+# all column save bytes
+create 'mysql_event','d'
+
+# all column save string
+create 'mysql_checkpoint','d'
+
+# all column save bytes
+create 'mysql_entry','d'
+

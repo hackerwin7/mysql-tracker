@@ -1,0 +1,125 @@
+package com.github.hackerwin7.mysql.tracker.protocol.protobuf;
+
+option java_package = "com.github.hackerwin7.mysql.tracker.protocol.protobuf";
+option java_outer_classname = "SimpleEntry";
+option optimize_for = SPEED;
+
+/** message **/
+message Entry {
+
+    /** head **/
+    optional Header header = 1;
+
+    /** body **/
+    optional RowChange rowChange = 2;
+
+    /** entry type **/
+    optional EntryType entryType = 3;
+
+    /** extension **/
+    optional Pair exts = 4;
+}
+
+/** message head **/
+message Header {
+
+    /** binlog file name **/
+    optional string logfileName = 1;
+
+    /** file offset, a event start offset not end offset **/
+    optional int64 logfileOffset = 2;
+
+    /** master serverId or slave serverId, we need master serverId **/
+    optional int64 serverId = 3;
+
+    /** event build timestamp **/
+    optional int64 ts = 4;
+
+    /** database name **/
+    optional string databaseName = 5;
+
+    /** table name **/
+    optional string tableName = 6;
+
+    /** event length **/
+    optional int64 eventLen = 7;
+
+    /** event type **/
+    optional EventType eventType = 8;
+
+    /** extension **/
+    repeated Pair exts = 9;
+}
+
+/** message body **/
+message RowChange {
+
+    /** multiple rowdata **/
+    repeated RowData rowData = 1;
+
+    /** extension **/
+    repeated Pair exts = 2;
+}
+
+/** row data **/
+message RowData {
+
+    /** before change the columns **/
+    repeated Column beforeColumns = 1;
+
+    /** after change the columns **/
+    repeated Column afterColumns = 2;
+
+    /** extension **/
+    repeated Pair exts = 3;
+}
+
+/** per column data structure **/
+message Column {
+
+    /** field name **/
+    optional string name = 1;
+
+    /** field value **/
+    optional string value = 2;
+
+    /** is key **/
+    optional bool isKey = 3;
+
+    /** is null **/
+    optional bool isNull = 4;
+
+    /** is updated **/
+    optional bool isUpdated = 5;
+
+    /** extension **/
+    optional Pair exts = 6;
+}
+
+/** key value **/
+message Pair {
+    optional string key = 1;
+    optional string value = 2;
+}
+
+/** customer entry type **/
+enum EntryType {
+    TRANSACTIONBEGIN 		=		1;
+    ROWDATA					=		2;
+    TRANSACTIONEND			=		3;
+}
+
+/** mysql event type **/
+enum EventType {
+    INSERT 		= 		1;
+    UPDATE 		= 		2;
+    DELETE 		= 		3;
+    CREATE		= 		4;
+    ALTER		= 		5;
+    ERASE		= 		6;
+    QUERY		=		7;
+    TRUNCATE	=		8;
+    RENAME 		= 		9;
+    CINDEX		= 		10;
+    DINDEX 		= 		11;
+}

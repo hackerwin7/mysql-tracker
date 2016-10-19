@@ -1,0 +1,18 @@
+{
+    "namespace": "protocol.avro",
+    "type": "record",
+    "name": "EventEntryAvro",
+    "fields": [
+        {"name": "mid", "type": "long"},
+        {"name": "db", "type": "string"},
+        {"name": "sch", "type": "string"},
+        {"name": "tab", "type": "string"},
+        {"name": "opt","type": "string"},
+        {"name": "ts", "type": "long"},
+        {"name": "ddl", "type": ["string", "null"]},
+        {"name": "err", "type": ["string", "null"]},
+        {"name": "src", "type": [{"type": "map","values": ["string", "null"]},"null"]},
+        {"name": "cur", "type": [{"type": "map","values": ["string", "null"]},"null"]},
+        {"name": "cus", "type": [{"type": "map","values": ["string", "null"]},"null"]}
+    ]
+}
