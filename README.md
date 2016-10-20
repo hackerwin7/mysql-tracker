@@ -21,5 +21,5 @@ tail -f logs/xxx.log
 HA and real-time job is lack of configuration, to see next version
 
 ### relative projects
-[mysql-parser](https://github.com/hackerwin7/mysql-parser) (a customer data format consumer of the mysql-tracker)
-[mysql-binlog-tracker](https://github.com/hackerwin7/mysql-binlog-tracker) (a new refactoring project from tracker and parser, developing)
+[mysql-parser](https://github.com/hackerwin7/mysql-parser) (a customer data format consumer of the mysql-tracker)    
+[mysql-binlog-tracker](https://github.com/hackerwin7/mysql-binlog-tracker) (a new refactoring project from tracker and parser, developing)   
