@@ -93,7 +93,7 @@ then
     echo conf : $conf
     echo CLASSPATH : $CLASSPATH
     cd $base
-    $JAVA $JAVA_OPTS $JAVA_DEBUG_OPT $TRACKER_OPTS -classpath .:$CLASSPATH deployer.LocalTracker 1>>$base/logs/tracker/console.log 2>&1 &
+    $JAVA $JAVA_OPTS $JAVA_DEBUG_OPT $TRACKER_OPTS -classpath .:$CLASSPATH com.github.hackerwin7.mysql.tracker.deployer.LocalTracker 1>>$base/logs/tracker/console.log 2>&1 &
     echo $! > $base/bin/tracker.pid
 
     echo "cd to $current_path for continue"
