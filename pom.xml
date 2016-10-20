@@ -9,14 +9,6 @@
             <id>cloudera</id>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
         </repository>
-        <repository>
-            <id>external-dependencies-repo</id>
-            <url>https://raw.githubusercontent.com/hackerwin7/external-dependencies-repo/master/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
     </repositories>
 
     <name>mysql-tracker</name>
